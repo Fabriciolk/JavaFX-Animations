@@ -1,15 +1,17 @@
 # JavaFX-Rain-Simulation
 Rain Simulation in 3D
 
-### Rain Parameters:
+#### Rain Parameters:
 
+<ul>
   <li>Drop Itself</li>
   <li>Drop Amount</li>
   <li>Sky Height</li>
   <li>Floor Height</li>
   <li>Sky Area</li>
+</ul>
   
-### Falling Parameters:
+#### Falling Parameters:
 
 <ul>
   <li>Fall X Angle</li>
@@ -19,7 +21,7 @@ Rain Simulation in 3D
   <li>Drop Rotation Speed</li>
 </ul>
 
-### KickFloor Parameters:
+#### KickFloor Parameters:
 
 <ul>
   <li>Direction Vector XZ</li>
