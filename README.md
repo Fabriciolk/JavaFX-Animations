@@ -11,7 +11,7 @@ Rain Simulation in 3D
   <li>Sky Area</li>
 </ul>
   
-#### Falling Parameters:
+#### Fall Parameters:
 
 <ul>
   <li>Fall X Angle</li>
