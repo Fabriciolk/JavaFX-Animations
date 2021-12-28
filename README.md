@@ -72,7 +72,7 @@ for (int i = 0; i < rainDropAmount; i++)
     // Attach each Shape3D in parent Group node
     parentGroupNode.getChildren().add(shape);
     // Add a new rain drop in rain instance using shape3D and rotations
-    rain.addRainDrop(new RainDrop(shape, xR, yR, zR));
+    rain.addRainDrop(new RainDrop(shape));
 }
 
 // Define parameters as want and start rain animation
