@@ -33,7 +33,7 @@ Rain Simulation in 3D
   <li>Kick Speed</li>
 </ul>
 
-#### How to use:
+#### How to implement rain WITH drop rotation:
 
 ```
 // Create a rain instance
@@ -49,6 +49,26 @@ for (int i = 0; i < rainDropAmount; i++)
     Rotate zR = new Rotate(0, Rotate.Z_AXIS);
     // Attach rotations in Shape3D
     shape.getTransforms().addAll(xR, yR, zR);
+    // Attach each Shape3D in parent Group node
+    parentGroupNode.getChildren().add(shape);
+    // Add a new rain drop in rain instance using shape3D and rotations
+    rain.addRainDrop(new RainDrop(shape, xR, yR, zR));
+}
+
+// Define parameters as want and start rain animation
+rain.start();
+```
+
+#### How to implement rain WITHOUT drop rotation:
+
+```
+// Create a rain instance
+Rain rain = new Rain();
+
+// Fill rain with Shape3D rain drops (boxes in this example)
+for (int i = 0; i < rainDropAmount; i++)
+{
+    Shape3D shape = new Box(0.03, 0.03, 0.03);
     // Attach each Shape3D in parent Group node
     parentGroupNode.getChildren().add(shape);
     // Add a new rain drop in rain instance using shape3D and rotations
