@@ -51,7 +51,7 @@ for (int i = 0; i < rainDropAmount; i++)
     shape.getTransforms().addAll(xR, yR, zR);
     // Attach each Shape3D in parent Group node
     parentGroupNode.getChildren().add(shape);
-    // Add Shape3D in rain instance
+    // Add a new rain drop in rain instance using shape3D and rotations
     rain.addRainDrop(new RainDrop(shape, xR, yR, zR));
 }
 
