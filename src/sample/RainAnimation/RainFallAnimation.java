@@ -33,7 +33,14 @@ class RainFallAnimation extends AnimationTimer
     {
         for (RainDrop rainDrop : availableDropList)
         {
-            if (rainDrop.rotationAnimationEnabled) rainDrop.animation.start();
+            if (rainDrop.rotationAnimationEnabled &&
+                rainDrop.xRotate != null &&
+                rainDrop.yRotate != null &&
+                rainDrop.zRotate != null)
+            {
+                rainDrop.animation.start();
+                rainDrop.rotationAnimationEnabled = true;
+            }
         }
     }
 
@@ -41,7 +48,10 @@ class RainFallAnimation extends AnimationTimer
     {
         for (RainDrop rainDrop : availableDropList)
         {
-            if (rainDrop.rotationAnimationEnabled) rainDrop.animation.stop();
+            if (rainDrop.rotationAnimationEnabled) {
+                rainDrop.animation.stop();
+                rainDrop.rotationAnimationEnabled = false;
+            }
         }
     }
 
@@ -59,6 +69,7 @@ class RainFallAnimation extends AnimationTimer
 
         for (RainDrop rainDrop : availableDropList)
         {
+
             if (rainDrop.STATE_CURRENT == rainDrop.STATE_READY_TO_FALL)
             {
                 if (passedGap(System.currentTimeMillis() - lastTimeDropFallen))

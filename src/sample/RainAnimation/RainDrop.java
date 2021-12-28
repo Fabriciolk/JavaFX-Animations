@@ -42,6 +42,14 @@ public class RainDrop
         this.animation = new RainDropAnimation(xRotate, yRotate, zRotate);
     }
 
+    public RainDrop(Shape3D shape3D)
+    {
+        this.shape3D = shape3D;
+        this.shape3D.setVisible(false);
+        this.rotationAnimationEnabled = false;
+        this.animation = new RainDropAnimation(xRotate, yRotate, zRotate);
+    }
+
     void setXzFloorDirection(double[] direction)
     {
         xzFloorDirection = direction;
