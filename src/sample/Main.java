@@ -1,47 +1,75 @@
 package sample;
 
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Box;
-import javafx.scene.shape.Shape;
-import javafx.scene.shape.Shape3D;
-import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
-import sample.RainAnimation.Rain;
-import sample.RainAnimation.RainDrop;
+import sample.ExplosionAnimation.ExplosionBoxAnimation;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        Rain rain = new Rain();
-        int rainDropAmount = 70;
         Group parentGroupNode = new Group();
 
-        Space3D space3D = new Space3D(parentGroupNode);
-        space3D.drawSimpleFloor(0, Color.BLUE);
+        Box boxToExplode = new Box(0.3, 0.3, 0.3);
+        boxToExplode.setVisible(true);
+        ExplosionBoxAnimation explosionBoxAnimation = new ExplosionBoxAnimation(boxToExplode, 10, true, parentGroupNode);
+        explosionBoxAnimation.fragmentDisplacementLength = 0.03;
 
-        for (int i = 0; i < rainDropAmount; i++)
-        {
-            Shape3D shape = new Box(0.03, 0.03, 0.03);
-//            Rotate xR = new Rotate(0, Rotate.X_AXIS);
-//            Rotate yR = new Rotate(0, Rotate.Y_AXIS);
-//            Rotate zR = new Rotate(0, Rotate.Z_AXIS);
-//            shape.getTransforms().addAll(xR, yR, zR);
-            parentGroupNode.getChildren().add(shape);
-//            rain.addRainDrop(new RainDrop(shape, xR, yR, zR));
-            rain.addRainDrop(new RainDrop(shape));
-        }
+        Scene scene = new Scene(parentGroupNode, 800, 600, true);
+        scene.setFill(Color.BLACK);
 
-        rain.start();
+        final long[] frameTimes = new long[100];
+        final int[] frameTimeIndex = {0};
+        final boolean[] arrayFilled = {false};
 
-        Scene scene = new Scene(parentGroupNode, 800, 600, Color.BLACK);
+        AnimationTimer frameRateMeter = new AnimationTimer() {
+
+            @Override
+            public void handle(long now) {
+                long oldFrameTime = frameTimes[frameTimeIndex[0]] ;
+                frameTimes[frameTimeIndex[0]] = now ;
+                frameTimeIndex[0] = (frameTimeIndex[0] + 1) % frameTimes.length ;
+                if (frameTimeIndex[0] == 0) {
+                    arrayFilled[0] = true ;
+                }
+                if (arrayFilled[0]) {
+                    long elapsedNanos = now - oldFrameTime ;
+                    long elapsedNanosPerFrame = elapsedNanos / frameTimes.length ;
+                    double frameRate = 1_000_000_000.0 / elapsedNanosPerFrame ;
+                    primaryStage.setTitle(String.format("Current frame rate: %.3f", frameRate));
+                }
+            }
+        };
+        frameRateMeter.start();
+
         CameraView cameraView = new CameraView(scene);
         scene.setCamera(cameraView.camera);
+        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                switch (event.getCode())
+                {
+                    case W:
+                        explosionBoxAnimation.start();
+                        break;
+                    case A:
+                        break;
+                }
+            }
+        });
+        cameraView.cameraTranslate.setZ(-20);
+
         parentGroupNode.getChildren().add(cameraView.camera);
+        parentGroupNode.getChildren().add(boxToExplode);
+
         primaryStage.setScene(scene);
         primaryStage.show();
     }

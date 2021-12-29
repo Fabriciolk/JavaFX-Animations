@@ -10,6 +10,8 @@ import javafx.scene.transform.Translate;
 
 public class CameraView
 {
+    double maxZoomOut = 100;
+    double maxZoomIn = -100;
     Scene attachedScene;
     PerspectiveCamera camera;
     double[] lastMouseScenePosition = {0, 0};
@@ -51,7 +53,7 @@ public class CameraView
                 }
                 else {
                     double newZValue = cameraTranslate.getZ() + (event.getSceneY() - lastMouseScenePosition[1]) * 0.10;
-                    if (-20 < newZValue && newZValue < -1.5)
+                    if (maxZoomIn < newZValue && newZValue < maxZoomOut)
                     {
                         cameraTranslate.setZ(newZValue);
                     }
