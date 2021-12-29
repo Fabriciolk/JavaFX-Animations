@@ -1,5 +1,6 @@
-# JavaFX-Rain-Simulation
-Rain Simulation in 3D
+# JavaFX-Animations
+
+## Rain Simulation in 3D
 
 #### Rain Parameters:
 
