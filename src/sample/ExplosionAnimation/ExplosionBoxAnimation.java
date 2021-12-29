@@ -8,15 +8,17 @@ import java.util.Random;
 
 public class ExplosionBoxAnimation extends AnimationTimer
 {
-    long lastMomentFragmentDisappear = System.currentTimeMillis();
-    public double fragmentDisplacementLength = 0.08;
-    double fragmentSpaceRunned = 0;
-    double spaceRunnedToStartDisappear = 0.3;
-    double gapFragmentDisappear = 2;
-    double fragmentDisappearAmount = 0;
-    double fragmentDisappearedPercentToStop = 0.8;
-    Random random = new Random();
-    FragmentBoxCreator fragmentBoxCreator;
+    private long lastMomentFragmentDisappear = System.currentTimeMillis();
+    private final Random random = new Random();
+    private final FragmentBoxCreator fragmentBoxCreator;
+    private double fragmentSpaceRunned = 0;
+    private double fragmentDisappearAmount = 0;
+
+    public double fragmentDisplacementLength = 0.05;
+    public double spaceRunnedToStartDisappear = 0.3;
+    public double gapFragmentDisappear = 2;
+    public double fragmentDisappearedPercentToStop = 0.8;
+    
     Box target;
 
     public ExplosionBoxAnimation(Box target, int scale, boolean optimized, Group parentGroup)
