@@ -13,7 +13,7 @@ public class ExplosionBoxAnimation extends AnimationTimer
     private final FragmentBoxCreator fragmentBoxCreator;
     private double fragmentSpaceRunned = 0;
     private double fragmentDisappearAmount = 0;
-
+    
     public double fragmentDisplacementLength = 0.05;
     public double spaceRunnedToStartDisappear = 0.3;
     public double gapFragmentDisappear = 2;
