@@ -1,6 +1,6 @@
 # JavaFX-Animations
 
-### Rain Simulation
+### Rain Animation
 
 <table>
   <tr>
@@ -94,9 +94,9 @@ for (int i = 0; i < rainDropAmount; i++)
 rain.start();
 ```
 
-Simulation:
+Animation:
 
-https://user-images.githubusercontent.com/72703544/147505734-9cd50c4d-566b-4f51-8597-183c842dacc4.mp4
+https://user-images.githubusercontent.com/72703544/147706131-4139aafa-bb0a-49b8-a8e5-23a79d799d78.mp4
 
 ### Box Explosion Animation
 
@@ -138,3 +138,9 @@ ExplosionBoxAnimation explosionBoxAnimation = new ExplosionBoxAnimation(boxToExp
 // Start animation
 explosionBoxAnimation.start();
 ```
+
+Animation:
+
+https://user-images.githubusercontent.com/72703544/147706150-7df8667d-3523-4b5d-9dbe-5f04ace38bfd.mp4
+
+
