@@ -71,7 +71,7 @@ for (int i = 0; i < rainDropAmount; i++)
     Shape3D shape = new Box(0.03, 0.03, 0.03);
     // Attach each Shape3D in parent Group node
     parentGroupNode.getChildren().add(shape);
-    // Add a new rain drop in rain instance using shape3D and rotations
+    // Add a new rain drop in rain instance using shape3D
     rain.addRainDrop(new RainDrop(shape));
 }
 
