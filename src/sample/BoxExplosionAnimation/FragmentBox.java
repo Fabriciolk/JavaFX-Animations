@@ -1,4 +1,4 @@
-package sample.ExplosionAnimation;
+package sample.BoxExplosionAnimation;
 
 import javafx.scene.shape.Box;
 

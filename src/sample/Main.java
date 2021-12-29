@@ -9,7 +9,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Box;
 import javafx.stage.Stage;
-import sample.ExplosionAnimation.ExplosionBoxAnimation;
+import sample.BoxExplosionAnimation.BoxExplosionAnimation;
 
 public class Main extends Application {
 
@@ -20,7 +20,7 @@ public class Main extends Application {
 
         Box boxToExplode = new Box(0.3, 0.3, 0.3);
         boxToExplode.setVisible(true);
-        ExplosionBoxAnimation explosionBoxAnimation = new ExplosionBoxAnimation(boxToExplode, 15, true, parentGroupNode);
+        BoxExplosionAnimation boxExplosionAnimation = new BoxExplosionAnimation(boxToExplode, 15, true, parentGroupNode);
 
         Scene scene = new Scene(parentGroupNode, 800, 600, true);
         scene.setFill(Color.BLACK);
@@ -57,7 +57,7 @@ public class Main extends Application {
                 switch (event.getCode())
                 {
                     case W:
-                        explosionBoxAnimation.start();
+                        boxExplosionAnimation.start();
                         break;
                     case A:
                         break;
