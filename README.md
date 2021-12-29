@@ -1,38 +1,52 @@
 # JavaFX-Animations
 
-## Rain Simulation in 3D
+### Rain Simulation in 3D
 
-#### Rain Parameters:
-
-<ul>
-  <li>Drop Itself</li>
-  <li>Drop Amount</li>
-  <li>Sky Height</li>
-  <li>Floor Height</li>
-  <li>Sky Area</li>
-</ul>
-  
-#### Fall Parameters:
-
-<ul>
-  <li>Fall X Angle</li>
-  <li>Fall Z Angle</li>
-  <li>Fall Speed</li>
-  <li>Time between Drops</li>
-  <li>Drop Rotation Speed</li>
-</ul>
-
-#### KickFloor Parameters:
-
-<ul>
-  <li>Direction Vector XZ</li>
-  <li>Initial Y Velocity</li>
-  <li>Initial XZ Velocity</li>
-  <li>Y Velocity Divider Per Kick</li>
-  <li>XZ Velocity Divider Per Kick</li>
-  <li>Maximum Kicks</li>
-  <li>Kick Speed</li>
-</ul>
+<table>
+  <tr>
+    <th colspan = 3>Rain Simulation Parameters</tr>
+  </tr>
+  <tr>
+    <th>Rain</th>
+    <th>Fall</th>
+    <th>KickFloor</th>
+  </tr>
+  <tr>
+    <td>Drop Itself</td>
+    <td>Fall X Angle</td>
+    <td>Direction Vector XZ</td>
+  </tr>
+  <tr>
+    <td>Drop Amount</td>
+    <td>Fall Z Angle</td>
+    <td>Initial Y Velocity</td>
+  </tr>
+  <tr>
+    <td>Drop Height</td>
+    <td>Fall Speed</td>
+    <td>Initial XZ Velocity</td>
+  </tr>
+  <tr>
+    <td>Floor Height</td>
+    <td>Time between Drops</td>
+    <td>Y Velocity Divider Per Kick</td>
+  </tr>
+  <tr>
+    <td>Sky Area</td>
+    <td>Drop Rotation Speed</td>
+    <td>XZ Velocity Divider Per Kick</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>Maximum Kicks</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>Kick Speed</td>
+  </tr>
+</table>
 
 #### How to implement rain WITH drop rotation:
 
