@@ -68,7 +68,7 @@ public class BoxExplosionAnimation extends AnimationTimer
             }
         }
 
-        if (fragmentDisappearAmount / fragmentBoxCreator.maxFragmentAmount >= fragmentDisappearedPercentToStop)
+        if (fragmentDisappearAmount / fragmentBoxCreator.totalFragmentAmount >= fragmentDisappearedPercentToStop)
         {
             removeAllFragments();
             fragmentBoxCreator.fragmentBoxes.clear();

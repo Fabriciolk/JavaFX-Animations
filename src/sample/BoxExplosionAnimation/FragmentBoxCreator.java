@@ -9,7 +9,7 @@ public class FragmentBoxCreator
 {
     final ArrayList<FragmentBox> fragmentBoxes;
     final Group parentGroupToAttachFragments;
-    final int maxFragmentAmount;
+    final int totalFragmentAmount;
     final boolean optimized;
     final int scale;
     final Box target;
@@ -22,8 +22,8 @@ public class FragmentBoxCreator
         this.target = target;
         this.fragmentBoxes = new ArrayList<>();
 
-        if (optimized) maxFragmentAmount = 6*scale*scale - 12*scale + 8;
-        else maxFragmentAmount = scale * scale * scale;
+        if (optimized) totalFragmentAmount = 6*scale*scale - 12*scale + 8;
+        else totalFragmentAmount = scale * scale * scale;
 
         // Maximum elements for optimized approach: scale³
         // Maximum elements for optimized approach: 6scale² - 12scale + 8
