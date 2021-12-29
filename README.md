@@ -1,6 +1,6 @@
 # JavaFX-Animations
 
-### Rain Simulation in 3D
+### Rain Simulation
 
 <table>
   <tr>
@@ -98,3 +98,43 @@ Simulation:
 
 https://user-images.githubusercontent.com/72703544/147505734-9cd50c4d-566b-4f51-8597-183c842dacc4.mp4
 
+### Box Explosion Animation
+
+
+<table>
+  <tr>
+    <th>Box Explosion Parameters</th>
+  </tr>
+  <tr>
+    <td>Box Itself</td>
+  </tr>
+  <tr>
+    <td>Scale</td>
+  </tr>
+  <tr>
+    <td>If Optimized</td>
+  </tr>
+  <tr>
+    <td>Fragment Displacement Length</td>
+  </tr>
+  <tr>
+    <td>Space Runned To Start Disappear</td>
+  </tr>
+  <tr>
+    <td>Gap Fragment Disappear</td>
+  </tr>
+  <tr>
+    <td>Fragment Disappeared Percent To Stop</td>
+  </tr>
+</table>
+
+### How to implement
+
+```
+// Create a Box instance to explode
+Box boxToExplode = new Box(0.3, 0.3, 0.3);
+// Create ExplosionBoxAnimation instance, defining parameters and using the Box instance
+ExplosionBoxAnimation explosionBoxAnimation = new ExplosionBoxAnimation(boxToExplode, 15, true, parentGroupNode);
+// Start animation
+explosionBoxAnimation.start();
+```
