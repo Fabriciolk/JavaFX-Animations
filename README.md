@@ -4,7 +4,7 @@
 
 <table>
   <tr>
-    <th colspan = 3>Rain Simulation Parameters</tr>
+    <th colspan = 3>Rain Animation Parameters</tr>
   </tr>
   <tr>
     <th>Rain</th>
