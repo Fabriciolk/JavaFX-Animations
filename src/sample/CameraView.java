@@ -24,6 +24,7 @@ public class CameraView
     {
         this.attachedScene = attachedScene;
         camera = new PerspectiveCamera(true);
+        attachedScene.setCamera(camera);
         camera.getTransforms().addAll(xCameraRotate, yCameraRotate, cameraTranslate);
         configEvents();
     }

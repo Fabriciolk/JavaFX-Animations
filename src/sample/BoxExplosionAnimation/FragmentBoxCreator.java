@@ -103,6 +103,7 @@ public class FragmentBoxCreator
         fragmentBox.setTranslateX(fragmentX);
         fragmentBox.setTranslateY(fragmentY);
         fragmentBox.setTranslateZ(fragmentZ);
+        fragmentBox.setMaterial(target.getMaterial());
         fragmentBox.setVisible(false);
         fragmentBoxes.add(fragmentBox);
         parentGroupToAttachFragments.getChildren().add(fragmentBox);

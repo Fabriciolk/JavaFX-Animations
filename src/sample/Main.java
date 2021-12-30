@@ -7,7 +7,8 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Box;
+import javafx.scene.paint.PhongMaterial;
+import javafx.scene.shape.*;
 import javafx.stage.Stage;
 import sample.BoxExplosionAnimation.BoxExplosionAnimation;
 
@@ -16,41 +17,21 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception
     {
+        // Parent Node
         Group parentGroupNode = new Group();
 
+        // Node
         Box boxToExplode = new Box(0.3, 0.3, 0.3);
-        boxToExplode.setVisible(true);
-        BoxExplosionAnimation boxExplosionAnimation = new BoxExplosionAnimation(boxToExplode, 10, true, parentGroupNode);
+        BoxExplosionAnimation boxExplosionAnimation = new BoxExplosionAnimation(boxToExplode, 20, true, parentGroupNode);
 
+        // Scene
         Scene scene = new Scene(parentGroupNode, 800, 600, true);
         scene.setFill(Color.BLACK);
 
-        final long[] frameTimes = new long[100];
-        final int[] frameTimeIndex = {0};
-        final boolean[] arrayFilled = {false};
-
-        AnimationTimer frameRateMeter = new AnimationTimer() {
-
-            @Override
-            public void handle(long now) {
-                long oldFrameTime = frameTimes[frameTimeIndex[0]] ;
-                frameTimes[frameTimeIndex[0]] = now ;
-                frameTimeIndex[0] = (frameTimeIndex[0] + 1) % frameTimes.length ;
-                if (frameTimeIndex[0] == 0) {
-                    arrayFilled[0] = true ;
-                }
-                if (arrayFilled[0]) {
-                    long elapsedNanos = now - oldFrameTime ;
-                    long elapsedNanosPerFrame = elapsedNanos / frameTimes.length ;
-                    double frameRate = 1_000_000_000.0 / elapsedNanosPerFrame ;
-                    primaryStage.setTitle(String.format("Current frame rate: %.3f", frameRate));
-                }
-            }
-        };
-        frameRateMeter.start();
-
+        // Perspective Camera
         CameraView cameraView = new CameraView(scene);
-        scene.setCamera(cameraView.camera);
+
+        // Overwrite event
         scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -59,17 +40,18 @@ public class Main extends Application {
                     case W:
                         boxExplosionAnimation.start();
                         break;
-                    case A:
-                        break;
                 }
             }
         });
-        cameraView.cameraTranslate.setZ(-20);
 
+        // Attaching Nodes
         parentGroupNode.getChildren().add(cameraView.camera);
         parentGroupNode.getChildren().add(boxToExplode);
 
+        // Stage configuration
         primaryStage.setScene(scene);
+        FrameRate frameRate = new FrameRate(primaryStage);
+        frameRate.start();
         primaryStage.show();
     }
 
