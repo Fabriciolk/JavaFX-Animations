@@ -18,7 +18,7 @@ public class FragmentBoxCreator
     {
         this.parentGroupToAttachFragments = parentGroup;
         this.optimized = optimized;
-        this.scale = scale;
+        this.scale = Math.max(2, scale);
         this.target = target;
         this.fragmentBoxes = new ArrayList<>();
 

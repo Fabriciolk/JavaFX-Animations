@@ -126,6 +126,9 @@ https://user-images.githubusercontent.com/72703544/147706131-4139aafa-bb0a-49b8-
   <tr>
     <td>Fragment Disappeared Percent To Stop</td>
   </tr>
+  <tr>
+    <td>Explosion Coordinate Source</td>
+  </tr>
 </table>
 
 ### How to implement

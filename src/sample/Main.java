@@ -20,7 +20,7 @@ public class Main extends Application {
 
         Box boxToExplode = new Box(0.3, 0.3, 0.3);
         boxToExplode.setVisible(true);
-        BoxExplosionAnimation boxExplosionAnimation = new BoxExplosionAnimation(boxToExplode, 15, true, parentGroupNode);
+        BoxExplosionAnimation boxExplosionAnimation = new BoxExplosionAnimation(boxToExplode, 10, true, parentGroupNode);
 
         Scene scene = new Scene(parentGroupNode, 800, 600, true);
         scene.setFill(Color.BLACK);
