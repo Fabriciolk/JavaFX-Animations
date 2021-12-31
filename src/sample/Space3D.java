@@ -14,11 +14,11 @@ public class Space3D
         this.group = group;
     }
 
-    void draw3DAxis (Color xAxisColor, Color yAxisColor, Color zAxisColor)
+    void draw3DAxis (Color xAxisColor, Color yAxisColor, Color zAxisColor, double length, double density)
     {
-        Box xAxis = new Box(5, 0.01, 0.01);
-        Box yAxis = new Box(0.01, 5, 0.01);
-        Box zAxis = new Box(0.01, 0.01, 5);
+        Box xAxis = new Box(length, density, density);
+        Box yAxis = new Box(density, length, density);
+        Box zAxis = new Box(density, density, length);
         xAxis.setMaterial(new PhongMaterial(xAxisColor));
         yAxis.setMaterial(new PhongMaterial(yAxisColor));
         zAxis.setMaterial(new PhongMaterial(zAxisColor));
@@ -27,22 +27,11 @@ public class Space3D
         group.getChildren().add(zAxis);
     }
 
-    void drawSimpleFloor (double yValue, Color color)
+    void drawSimpleRectangularFloor (double floorHeight, Color color, double width, double height, double depth)
     {
-        int totalLine = 20;
-
-        for (int i = 0; i < totalLine; i++)
-        {
-            Box verticalLine = new Box(0.01, 0.01, 5);
-            Box horizontalLine = new Box(5, 0.01, 0.01);
-            verticalLine.setMaterial(new PhongMaterial(color));
-            horizontalLine.setMaterial(new PhongMaterial(color));
-            verticalLine.setTranslateX(-2 + i * (4.0 / totalLine));
-            verticalLine.setTranslateY(yValue);
-            horizontalLine.setTranslateZ(-2 + i * (4.0 / totalLine));
-            horizontalLine.setTranslateY(yValue);
-            group.getChildren().add(verticalLine);
-            group.getChildren().add(horizontalLine);
-        }
+        Box plane = new Box(width, height, depth);
+        plane.setTranslateY(floorHeight);
+        plane.setMaterial(new PhongMaterial(color));
+        group.getChildren().add(plane);
     }
 }

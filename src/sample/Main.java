@@ -22,11 +22,11 @@ public class Main extends Application {
 
         // Draw 3D coordinates
         Space3D space3D = new Space3D(parentGroupNode);
-        space3D.drawSimpleFloor(0.3, Color.BLUE);
+        space3D.drawSimpleRectangularFloor(0.3, Color.BLUE, 8, 0.01, 8);
 
         // Node
-        Sphere shapeToTest = new Sphere(0.3);
-        ImpulseAnimation impulseAnimation = new ImpulseAnimation(shapeToTest, new double[] {-0.3, -0.01, 1}, 0.01);
+        Box shapeToTest = new Box(0.3, 0.3, 0.3);
+        BoxExplosionAnimation boxExplosionAnimation = new BoxExplosionAnimation(shapeToTest, 15, true, parentGroupNode);
 
         // Scene
         Scene scene = new Scene(parentGroupNode, 800, 600, true);
@@ -42,7 +42,7 @@ public class Main extends Application {
                 switch (event.getCode())
                 {
                     case W:
-                        impulseAnimation.start();
+                        boxExplosionAnimation.start();
                         break;
                 }
             }
