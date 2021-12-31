@@ -23,10 +23,6 @@ public class BoxExplosionAnimation extends AnimationTimer
     public BoxExplosionAnimation(Box target, int scale, boolean optimized, Group parentGroup)
     {
         fragmentBoxCreator = new FragmentBoxCreator(target, scale, optimized, parentGroup);
-        fragmentBoxCreator.createAllFragments();
-        explosionCoordinateSource[0] = fragmentBoxCreator.target.getTranslateX();
-        explosionCoordinateSource[1] = fragmentBoxCreator.target.getTranslateY();
-        explosionCoordinateSource[2] = fragmentBoxCreator.target.getTranslateZ();
     }
 
     public void setExplosionCoordinateSource (double[] coordinatesXYZ)
@@ -51,8 +47,11 @@ public class BoxExplosionAnimation extends AnimationTimer
 
     @Override
     public void start() {
-        for (FragmentBox fragmentBox : fragmentBoxCreator.fragmentBoxes) fragmentBox.setVisible(true);
         fragmentBoxCreator.target.setVisible(false);
+        explosionCoordinateSource[0] = fragmentBoxCreator.target.getTranslateX();
+        explosionCoordinateSource[1] = fragmentBoxCreator.target.getTranslateY();
+        explosionCoordinateSource[2] = fragmentBoxCreator.target.getTranslateZ();
+        fragmentBoxCreator.createAllFragments();
         fragmentBoxCreator.parentGroupToAttachFragments.getChildren().remove(fragmentBoxCreator.target);
         super.start();
     }

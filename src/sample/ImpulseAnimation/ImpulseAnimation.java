@@ -6,7 +6,7 @@ import javafx.scene.shape.Shape3D;
 public class ImpulseAnimation extends AnimationTimer
 {
     private ShakeAnimation shakeAnimation;
-    private double[] directionVector = new double[3];
+    private final double[] directionVector = new double[3];
     Shape3D projectile;
     double scalar = 0.0;
     double speed;

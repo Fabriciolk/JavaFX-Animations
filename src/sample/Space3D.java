@@ -5,6 +5,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.shape.Box;
 
+import java.util.zip.ZipEntry;
+
 public class Space3D
 {
     Group group;
@@ -14,17 +16,51 @@ public class Space3D
         this.group = group;
     }
 
-    void draw3DAxis (Color xAxisColor, Color yAxisColor, Color zAxisColor, double length, double density)
+    void drawXYZAxis (Color xAxisColor, Color yAxisColor, Color zAxisColor, double length, double density)
     {
-        Box xAxis = new Box(length, density, density);
-        Box yAxis = new Box(density, length, density);
-        Box zAxis = new Box(density, density, length);
-        xAxis.setMaterial(new PhongMaterial(xAxisColor));
-        yAxis.setMaterial(new PhongMaterial(yAxisColor));
-        zAxis.setMaterial(new PhongMaterial(zAxisColor));
-        group.getChildren().add(xAxis);
-        group.getChildren().add(yAxis);
-        group.getChildren().add(zAxis);
+        drawXAxis(xAxisColor, length, density);
+        drawYAxis(yAxisColor, length, density);
+        drawZAxis(zAxisColor, length, density);
+    }
+
+    void drawXZAxis (Color xAxisColor, Color zAxisColor, double length, double density)
+    {
+        drawXAxis(xAxisColor, length, density);
+        drawZAxis(zAxisColor, length, density);
+    }
+
+    void drawXYAxis (Color xAxisColor, Color yAxisColor, double length, double density)
+    {
+        drawXAxis(xAxisColor, length, density);
+        drawZAxis(yAxisColor, length, density);
+    }
+
+    void drawYZAxis (Color yAxisColor, Color zAxisColor, double length, double density)
+    {
+        drawXAxis(yAxisColor, length, density);
+        drawZAxis(zAxisColor, length, density);
+    }
+
+    void drawXAxis (Color axisColor, double length, double density)
+    {
+        drawBoxAsAxis(axisColor, length, density, density);
+    }
+
+    void drawYAxis (Color axisColor, double length, double density)
+    {
+        drawBoxAsAxis(axisColor, density, length, density);
+    }
+
+    void drawZAxis (Color axisColor, double length, double density)
+    {
+        drawBoxAsAxis(axisColor, density, density, length);
+    }
+
+    void drawBoxAsAxis (Color axisColor, double width, double height, double depth)
+    {
+        Box axis = new Box(width, height, depth);
+        axis.setMaterial(new PhongMaterial(axisColor));
+        group.getChildren().add(axis);
     }
 
     void drawSimpleRectangularFloor (double floorHeight, Color color, double width, double height, double depth)
