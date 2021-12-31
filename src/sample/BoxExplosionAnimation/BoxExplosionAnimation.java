@@ -47,8 +47,8 @@ public class BoxExplosionAnimation extends AnimationTimer
     @Override
     public void start() {
         fragmentBoxCreator.target.setVisible(false);
-        fragmentBoxCreator.parentGroupToAttachFragments.getChildren().remove(fragmentBoxCreator.target);
         updateBox();
+        fragmentBoxCreator.parentGroupToAttachFragments.getChildren().remove(fragmentBoxCreator.target);
         fragmentBoxCreator.createAllFragments();
         super.start();
     }

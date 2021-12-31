@@ -7,13 +7,13 @@ public class ImpulseAnimation extends AnimationTimer
 {
     private ShakeAnimation shakeAnimation;
     private final double[] directionVector = new double[3];
-    Shape3D projectile;
-    double scalar = 0.0;
-    double speed;
+    private Shape3D projectile;
+    private double scalar = 0.0;
+    private double speed;
 
-    boolean shakeEnabled = true;
-    long timeToImpulse = 3000;
-    long initialTime;
+    private boolean shakeEnabled = true;
+    private long timeToImpulse = 3000;
+    private long initialTimeAnimationStarted;
 
     public ImpulseAnimation(Shape3D projectile, double[] directionFromProjectile, double speed)
     {
@@ -26,9 +26,19 @@ public class ImpulseAnimation extends AnimationTimer
         this.speed = speed;
     }
 
+    public void setSpeed (double speed)
+    {
+        this.speed = speed;
+    }
+
     public ShakeAnimation getShakeAnimation ()
     {
         return shakeAnimation;
+    }
+
+    public void setTimeToImpulse (long timeToImpulse)
+    {
+        this.timeToImpulse = timeToImpulse;
     }
 
     public void setShakeEnabled (boolean enabled, long timeToImpulse)
@@ -41,7 +51,7 @@ public class ImpulseAnimation extends AnimationTimer
     @Override
     public void start() {
         if (shakeEnabled) shakeAnimation.start();
-        initialTime = System.currentTimeMillis();
+        initialTimeAnimationStarted = System.currentTimeMillis();
         super.start();
     }
 
@@ -55,7 +65,7 @@ public class ImpulseAnimation extends AnimationTimer
     public void handle(long now)
     {
         // Ready to impulse
-        if (System.currentTimeMillis() - initialTime >= timeToImpulse)
+        if (System.currentTimeMillis() - initialTimeAnimationStarted >= timeToImpulse)
         {
             shakeAnimation.stop();
             projectile.setTranslateX(scalar * directionVector[0] + projectile.getTranslateX());

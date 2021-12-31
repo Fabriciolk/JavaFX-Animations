@@ -7,22 +7,22 @@ import java.util.Random;
 
 public class ShakeAnimation extends AnimationTimer
 {
-    final Random random = new Random();
-    boolean incrementsChanged = false;
-    final Shape3D shape;
-    double[] initialPos;
+    private final Random random = new Random();
+    private boolean incrementsChanged = false;
+    private final Shape3D shape;
+    private final double[] initialPos;
 
-    double maxLengthMove;
-    double incrementScale = 0.0;
-    long incrementGapMove = 0;
+    private double maxLengthMove;
+    private double incrementScale = 0.0;
+    private long incrementGapMove = 0;
 
-    long timeGapIncrementMaxLengthMove;
-    long timeGapIncrementGapMove;
-    long timeGapMove;
+    private long timeGapIncrementMaxLengthMove;
+    private long timeGapIncrementGapMove;
+    private long timeGapMove;
 
-    long lastTimeMoved;
-    long lastTimeMaxLengthMoveIncremented;
-    long lastTimeGapMoveIncremented;
+    private long lastTimeMoved;
+    private long lastTimeMaxLengthMoveIncremented;
+    private long lastTimeGapMoveIncremented;
 
     public ShakeAnimation (Shape3D shape, double maxLengthMove, long timeGapMove)
     {
@@ -30,6 +30,16 @@ public class ShakeAnimation extends AnimationTimer
         this.timeGapMove = timeGapMove;
         this.shape = shape;
         this.maxLengthMove = maxLengthMove;
+    }
+
+    public void setMaxLengthMove (double maxLengthMove)
+    {
+        this.maxLengthMove = maxLengthMove;
+    }
+
+    public void setTimeGapMove (long timeGapMove)
+    {
+        this.timeGapMove = timeGapMove;
     }
 
     public void setIncrementMaxLengthMove (double increment, long gapBetweenIncrement)
