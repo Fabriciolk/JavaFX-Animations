@@ -14,14 +14,14 @@ public class Space3D
         this.group = group;
     }
 
-    void draw3DAxis ()
+    void draw3DAxis (Color xAxisColor, Color yAxisColor, Color zAxisColor)
     {
         Box xAxis = new Box(5, 0.01, 0.01);
         Box yAxis = new Box(0.01, 5, 0.01);
         Box zAxis = new Box(0.01, 0.01, 5);
-        xAxis.setMaterial(new PhongMaterial(Color.RED));
-        yAxis.setMaterial(new PhongMaterial(Color.GREEN));
-        zAxis.setMaterial(new PhongMaterial(Color.BLUE));
+        xAxis.setMaterial(new PhongMaterial(xAxisColor));
+        yAxis.setMaterial(new PhongMaterial(yAxisColor));
+        zAxis.setMaterial(new PhongMaterial(zAxisColor));
         group.getChildren().add(xAxis);
         group.getChildren().add(yAxis);
         group.getChildren().add(zAxis);
