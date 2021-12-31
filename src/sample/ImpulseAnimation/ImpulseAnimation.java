@@ -46,6 +46,12 @@ public class ImpulseAnimation extends AnimationTimer
     }
 
     @Override
+    public void stop() {
+        shakeAnimation.stop();
+        super.stop();
+    }
+
+    @Override
     public void handle(long now)
     {
         // Ready to impulse

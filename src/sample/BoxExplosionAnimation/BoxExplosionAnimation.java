@@ -18,7 +18,6 @@ public class BoxExplosionAnimation extends AnimationTimer
     public double spaceRunnedToStartDisappear = 0.3;
     public double gapFragmentDisappear = 2;
     public double fragmentDisappearedPercentToStop = 0.8;
-    private final double[] explosionCoordinateSource = new double[3];
 
     public BoxExplosionAnimation(Box target, int scale, boolean optimized, Group parentGroup)
     {
@@ -32,13 +31,13 @@ public class BoxExplosionAnimation extends AnimationTimer
         if (pointIsInsideBox(fragmentBoxCreator.target, coordinatesXYZ))
         {
             System.out.println("Coordenadas definidas.");
-            explosionCoordinateSource[0] = coordinatesXYZ[0];
-            explosionCoordinateSource[1] = coordinatesXYZ[1];
-            explosionCoordinateSource[2] = coordinatesXYZ[2];
+            fragmentBoxCreator.explosionCoordinateSource[0] = coordinatesXYZ[0];
+            fragmentBoxCreator.explosionCoordinateSource[1] = coordinatesXYZ[1];
+            fragmentBoxCreator.explosionCoordinateSource[2] = coordinatesXYZ[2];
         }
     }
 
-    boolean pointIsInsideBox (Box box, double[] point)
+    private boolean pointIsInsideBox (Box box, double[] point)
     {
         return (Math.abs(point[0] - box.getTranslateX()) <= box.getWidth()/2 &&
                 Math.abs(point[1] - box.getTranslateY()) <= box.getHeight()/2 &&
@@ -48,15 +47,26 @@ public class BoxExplosionAnimation extends AnimationTimer
     @Override
     public void start() {
         fragmentBoxCreator.target.setVisible(false);
-        explosionCoordinateSource[0] = fragmentBoxCreator.target.getTranslateX();
-        explosionCoordinateSource[1] = fragmentBoxCreator.target.getTranslateY();
-        explosionCoordinateSource[2] = fragmentBoxCreator.target.getTranslateZ();
-        fragmentBoxCreator.createAllFragments();
         fragmentBoxCreator.parentGroupToAttachFragments.getChildren().remove(fragmentBoxCreator.target);
+        updateBox();
+        fragmentBoxCreator.createAllFragments();
         super.start();
     }
 
-    void removeAllFragments ()
+    // This method avoids coordinates problems caused by another animation that modify those,
+    // creating another instance of Box with same properties.
+    synchronized void updateBox ()
+    {
+        Box newBox = new Box(fragmentBoxCreator.target.getWidth(), fragmentBoxCreator.target.getHeight(), fragmentBoxCreator.target.getDepth());
+        newBox.setTranslateX(fragmentBoxCreator.target.getTranslateX());
+        newBox.setTranslateY(fragmentBoxCreator.target.getTranslateY());
+        newBox.setTranslateZ(fragmentBoxCreator.target.getTranslateZ());
+        newBox.setMaterial(fragmentBoxCreator.target.getMaterial());
+        newBox.setVisible(false);
+        fragmentBoxCreator.target = newBox;
+    }
+
+    private void removeAllFragments ()
     {
         for (FragmentBox fragmentBox : fragmentBoxCreator.fragmentBoxes){
             fragmentBox.setVisible(false);
@@ -70,9 +80,9 @@ public class BoxExplosionAnimation extends AnimationTimer
         for (int i = 0; i < fragmentBoxCreator.fragmentBoxes.size(); i++)
         {
             FragmentBox fragment = fragmentBoxCreator.fragmentBoxes.get(i);
-            fragment.setTranslateX((1 + (fragmentDisplacementLength / fragment.currentDistanceToTarget)) * (fragment.getTranslateX() - explosionCoordinateSource[0]) + explosionCoordinateSource[0]);
-            fragment.setTranslateY((1 + (fragmentDisplacementLength / fragment.currentDistanceToTarget)) * (fragment.getTranslateY() - explosionCoordinateSource[1]) + explosionCoordinateSource[1]);
-            fragment.setTranslateZ((1 + (fragmentDisplacementLength / fragment.currentDistanceToTarget)) * (fragment.getTranslateZ() - explosionCoordinateSource[2]) + explosionCoordinateSource[2]);
+            fragment.setTranslateX((1 + (fragmentDisplacementLength / fragment.currentDistanceToTarget)) * (fragment.getTranslateX() - fragmentBoxCreator.target.getTranslateX() - fragmentBoxCreator.explosionCoordinateSource[0]) + fragmentBoxCreator.target.getTranslateX() + fragmentBoxCreator.explosionCoordinateSource[0]);
+            fragment.setTranslateY((1 + (fragmentDisplacementLength / fragment.currentDistanceToTarget)) * (fragment.getTranslateY() - fragmentBoxCreator.target.getTranslateY() - fragmentBoxCreator.explosionCoordinateSource[1]) + fragmentBoxCreator.target.getTranslateY() + fragmentBoxCreator.explosionCoordinateSource[1]);
+            fragment.setTranslateZ((1 + (fragmentDisplacementLength / fragment.currentDistanceToTarget)) * (fragment.getTranslateZ() - fragmentBoxCreator.target.getTranslateZ() - fragmentBoxCreator.explosionCoordinateSource[2]) + fragmentBoxCreator.target.getTranslateZ() + fragmentBoxCreator.explosionCoordinateSource[2]);
             fragment.currentDistanceToTarget += fragmentDisplacementLength;
 
             if (fragmentSpaceRunned > spaceRunnedToStartDisappear)

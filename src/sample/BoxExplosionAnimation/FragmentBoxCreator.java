@@ -7,12 +7,13 @@ import java.util.ArrayList;
 
 public class FragmentBoxCreator
 {
+    final double[] explosionCoordinateSource = new double[3];
     final ArrayList<FragmentBox> fragmentBoxes;
     final Group parentGroupToAttachFragments;
     final int totalFragmentAmount;
     final boolean optimized;
     final int scale;
-    final Box target;
+    Box target;
 
     public FragmentBoxCreator(Box target, int scale, boolean optimized, Group parentGroup)
     {
@@ -24,9 +25,6 @@ public class FragmentBoxCreator
 
         if (optimized) totalFragmentAmount = 6*scale*scale - 12*scale + 8;
         else totalFragmentAmount = scale * scale * scale;
-
-        // Maximum elements for optimized approach: scale³
-        // Maximum elements for optimized approach: 6scale² - 12scale + 8
     }
 
     public void createAllFragments ()
@@ -98,8 +96,15 @@ public class FragmentBoxCreator
         double fragmentX = xPos + target.getTranslateX() - target.getWidth()/2;
         double fragmentY = yPos + target.getTranslateY() - target.getWidth()/2;
         double fragmentZ = zPos + target.getTranslateZ() - target.getWidth()/2;
-        double distanceToCenterTarget = Math.sqrt(Math.pow(fragmentX - target.getTranslateX(), 2) + Math.pow(fragmentY - target.getTranslateY(), 2) + Math.pow(fragmentZ - target.getTranslateZ(), 2));
-        FragmentBox fragmentBox = new FragmentBox(target.getWidth() / scale, target.getWidth() / scale, target.getWidth() / scale, distanceToCenterTarget);
+        double distanceToExplosionSource = Math.sqrt(
+                Math.pow(fragmentX - (target.getTranslateX() + explosionCoordinateSource[0]), 2) +
+                Math.pow(fragmentY - (target.getTranslateY() + explosionCoordinateSource[1]), 2) +
+                Math.pow(fragmentZ - (target.getTranslateZ() + explosionCoordinateSource[2]), 2));
+        FragmentBox fragmentBox = new FragmentBox(
+                target.getWidth() / scale,
+                target.getWidth() / scale,
+                target.getWidth() / scale,
+                distanceToExplosionSource);
         fragmentBox.setTranslateX(fragmentX);
         fragmentBox.setTranslateY(fragmentY);
         fragmentBox.setTranslateZ(fragmentZ);
