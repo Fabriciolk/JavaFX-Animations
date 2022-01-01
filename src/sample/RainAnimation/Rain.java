@@ -42,7 +42,7 @@ public class Rain extends MeshView
 
     /*****************************
      **                         **
-     **       Set Methods       **
+     **         Setters         **
      **                         **
      ****************************/
 
@@ -140,7 +140,7 @@ public class Rain extends MeshView
 
     /*****************************
      **                         **
-     **       Get Methods       **
+     **         Getters         **
      **                         **
      ****************************/
 

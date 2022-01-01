@@ -26,28 +26,6 @@ public class ImpulseAnimation extends AnimationTimer
         this.speed = speed;
     }
 
-    public void setSpeed (double speed)
-    {
-        this.speed = speed;
-    }
-
-    public ShakeAnimation getShakeAnimation ()
-    {
-        return shakeAnimation;
-    }
-
-    public void setTimeToImpulse (long timeToImpulse)
-    {
-        this.timeToImpulse = timeToImpulse;
-    }
-
-    public void setShakeEnabled (boolean enabled, long timeToImpulse)
-    {
-        if (timeToImpulse < 0) return;
-        shakeEnabled = enabled;
-        this.timeToImpulse = timeToImpulse;
-    }
-
     @Override
     public void start() {
         if (shakeEnabled) shakeAnimation.start();
@@ -73,5 +51,39 @@ public class ImpulseAnimation extends AnimationTimer
             projectile.setTranslateZ(scalar * directionVector[2] + projectile.getTranslateZ());
             scalar += speed;
         }
+    }
+
+    /*****************************
+     **                         **
+     **         Setters         **
+     **                         **
+     ****************************/
+
+    public void setSpeed (double speed)
+    {
+        this.speed = speed;
+    }
+
+    public void setTimeToImpulse (long timeToImpulse)
+    {
+        this.timeToImpulse = timeToImpulse;
+    }
+
+    public void setShakeEnabled (boolean enabled, long timeToImpulse)
+    {
+        if (timeToImpulse < 0) return;
+        shakeEnabled = enabled;
+        this.timeToImpulse = timeToImpulse;
+    }
+
+    /*****************************
+     **                         **
+     **         Getters         **
+     **                         **
+     ****************************/
+
+    public ShakeAnimation getShakeAnimation ()
+    {
+        return shakeAnimation;
     }
 }

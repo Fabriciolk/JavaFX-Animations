@@ -26,11 +26,8 @@ public class Main extends Application {
 
         // Node
         Box shapeToTest = new Box(0.3, 0.3, 0.3);
-        BoxExplosionAnimation boxExplosionAnimation = new BoxExplosionAnimation(shapeToTest, 20, true, parentGroupNode);
-        ImpulseAnimation impulseAnimation = new ImpulseAnimation(shapeToTest, new double[] {-0.05, -0.05,1}, 0.02);
-        impulseAnimation.getShakeAnimation().setTimeGapMove(50);
-        impulseAnimation.getShakeAnimation().setMaxLengthMove(0.01);
-        impulseAnimation.getShakeAnimation().setIncrementGapMove(-2, 100);
+        BoxExplosionAnimation boxExplosionAnimation = new BoxExplosionAnimation(shapeToTest, 13, true, parentGroupNode);
+        ImpulseAnimation impulseAnimation = new ImpulseAnimation(shapeToTest, new double[] {-0.05, -0.05,1}, 0.01);
 
         // Scene
         Scene scene = new Scene(parentGroupNode, 800, 600, true);

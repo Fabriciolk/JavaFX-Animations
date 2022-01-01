@@ -32,30 +32,6 @@ public class ShakeAnimation extends AnimationTimer
         this.maxLengthMove = maxLengthMove;
     }
 
-    public void setMaxLengthMove (double maxLengthMove)
-    {
-        this.maxLengthMove = maxLengthMove;
-    }
-
-    public void setTimeGapMove (long timeGapMove)
-    {
-        this.timeGapMove = timeGapMove;
-    }
-
-    public void setIncrementMaxLengthMove (double increment, long gapBetweenIncrement)
-    {
-        incrementsChanged = true;
-        incrementScale = increment;
-        timeGapIncrementMaxLengthMove = gapBetweenIncrement;
-    }
-
-    public void setIncrementGapMove (long increment, long gapBetweenIncrement)
-    {
-        incrementsChanged = true;
-        incrementGapMove = increment;
-        timeGapIncrementGapMove = gapBetweenIncrement;
-    }
-
     @Override
     public void start() {
         lastTimeMoved = System.currentTimeMillis();
@@ -91,5 +67,35 @@ public class ShakeAnimation extends AnimationTimer
         }
 
         if (incrementsChanged) verifyIncrements();
+    }
+
+    /*****************************
+     **                         **
+     **         Setters         **
+     **                         **
+     ****************************/
+
+    public void setMaxLengthMove (double maxLengthMove)
+    {
+        this.maxLengthMove = maxLengthMove;
+    }
+
+    public void setTimeGapMove (long timeGapMove)
+    {
+        this.timeGapMove = timeGapMove;
+    }
+
+    public void setIncrementMaxLengthMove (double increment, long gapBetweenIncrement)
+    {
+        incrementsChanged = true;
+        incrementScale = increment;
+        timeGapIncrementMaxLengthMove = gapBetweenIncrement;
+    }
+
+    public void setIncrementGapMove (long increment, long gapBetweenIncrement)
+    {
+        incrementsChanged = true;
+        incrementGapMove = increment;
+        timeGapIncrementGapMove = gapBetweenIncrement;
     }
 }
