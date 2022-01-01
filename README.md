@@ -146,4 +146,53 @@ Animation:
 
 https://user-images.githubusercontent.com/72703544/147706150-7df8667d-3523-4b5d-9dbe-5f04ace38bfd.mp4
 
+### Shake and Impulse Animation
+
+<table>
+  <tr>
+    <th colspan = 2>Shake and Impulse Parameters</tr>
+  </tr>
+  <tr>
+    <th>Shake</th>
+    <th>Impulse</th>
+  </tr>
+  <tr>
+    <td>Max. Length Move</td>
+    <td>Speed</td>
+  </tr>
+  <tr>
+    <td>Time Gap To Move</td>
+    <td>Time To Impulse</td>
+  </tr>
+  <tr>
+    <td>Time Gap To Move Increment</td>
+    <td>Direction From Projectile</td>
+  </tr>
+  <tr>
+    <td>Max. Length Move Increment</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Set Enabled</td>
+    <td></td>
+  </tr>
+</table>
+
+### How To Implement
+
+```
+// Create a instance to impulse
+Shape3D shapeToTest = new Box(0.3, 0.3, 0.3);
+// Create instance of ImpulseAnimation defining parameters
+ImpulseAnimation impulseAnimation = new ImpulseAnimation(shapeToTest, direction, speed);
+// Start impulse
+impulseAnimation.start();
+```
+
+Animation:
+
+https://user-images.githubusercontent.com/72703544/147848852-1af48863-84e8-4951-9690-5705a5f18c51.mp4
+
+
+
 
