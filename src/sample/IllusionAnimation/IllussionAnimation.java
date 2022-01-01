@@ -44,7 +44,6 @@ public class IllussionAnimation extends AnimationTimer
     public void addPositionXYZ (double[] positionXYZ)
     {
         if (positionXYZ.length != 3) return;
-        System.out.println("posicao adicionada: [" + positionXYZ[0] + ", " + positionXYZ[1] + ", " + positionXYZ[2] + "]");
         positions.add(positionXYZ);
     }
 
