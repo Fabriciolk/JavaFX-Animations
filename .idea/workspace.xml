@@ -21,14 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="40a83114-abb6-4472-965a-4860ca9c1620" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaFX-Animations/sample/BoxExplosionAnimation/BoxExplosionAnimation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaFX-Animations/sample/BoxExplosionAnimation/BoxExplosionAnimation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaFX-Animations/sample/ImpulseAnimation/ImpulseAnimation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaFX-Animations/sample/ImpulseAnimation/ImpulseAnimation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaFX-Animations/sample/ImpulseAnimation/ShakeAnimation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaFX-Animations/sample/ImpulseAnimation/ShakeAnimation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaFX-Animations/sample/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaFX-Animations/sample/Main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaFX-Animations/sample/Main$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaFX-Animations/sample/Main$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/JavaFX-Animations/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaFX-Animations/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/BoxExplosionAnimation/BoxExplosionAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/BoxExplosionAnimation/BoxExplosionAnimation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ImpulseAnimation/ImpulseAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ImpulseAnimation/ImpulseAnimation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/ImpulseAnimation/ShakeAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/ImpulseAnimation/ShakeAnimation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/RainAnimation/Rain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/RainAnimation/Rain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,10 +109,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="861" y="106" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.25.1680.1010@0.0.1536.824" timestamp="1641031419495" />
-    <state x="246" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1640814919507">
+    <state x="246" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1641050044765">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="246" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824/1920.25.1680.1010@0.0.1536.824" timestamp="1640814919507" />
+    <state x="246" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824/1920.25.1680.1010@0.0.1536.824" timestamp="1641050044765" />
     <state x="564" y="283" key="DetectedRootsChooserDialog" timestamp="1640813011442">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -122,25 +121,25 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="473" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1640813010027" />
-    <state width="1493" height="67" key="GridCell.Tab.0.bottom" timestamp="1641032465201">
+    <state width="1493" height="182" key="GridCell.Tab.0.bottom" timestamp="1641049987788">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="67" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.25.1680.1010@0.0.1536.824" timestamp="1641032465201" />
+    <state width="1493" height="182" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.25.1680.1010@0.0.1536.824" timestamp="1641049987788" />
     <state width="1493" height="103" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1640813705129" />
-    <state width="1493" height="67" key="GridCell.Tab.0.center" timestamp="1641032465200">
+    <state width="1493" height="182" key="GridCell.Tab.0.center" timestamp="1641049987788">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="67" key="GridCell.Tab.0.center/0.0.1536.824/1920.25.1680.1010@0.0.1536.824" timestamp="1641032465200" />
+    <state width="1493" height="182" key="GridCell.Tab.0.center/0.0.1536.824/1920.25.1680.1010@0.0.1536.824" timestamp="1641049987788" />
     <state width="1493" height="103" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1640813705129" />
-    <state width="1493" height="67" key="GridCell.Tab.0.left" timestamp="1641032465200">
+    <state width="1493" height="182" key="GridCell.Tab.0.left" timestamp="1641049987788">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="67" key="GridCell.Tab.0.left/0.0.1536.824/1920.25.1680.1010@0.0.1536.824" timestamp="1641032465200" />
+    <state width="1493" height="182" key="GridCell.Tab.0.left/0.0.1536.824/1920.25.1680.1010@0.0.1536.824" timestamp="1641049987788" />
     <state width="1493" height="103" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1640813705129" />
-    <state width="1493" height="67" key="GridCell.Tab.0.right" timestamp="1641032465200">
+    <state width="1493" height="182" key="GridCell.Tab.0.right" timestamp="1641049987788">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="67" key="GridCell.Tab.0.right/0.0.1536.824/1920.25.1680.1010@0.0.1536.824" timestamp="1641032465200" />
+    <state width="1493" height="182" key="GridCell.Tab.0.right/0.0.1536.824/1920.25.1680.1010@0.0.1536.824" timestamp="1641049987788" />
     <state width="1493" height="103" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1640813705129" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1640982004147">
       <screen x="0" y="0" width="1536" height="824" />

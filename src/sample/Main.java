@@ -9,8 +9,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.stage.Stage;
 import sample.BoxExplosionAnimation.BoxExplosionAnimation;
+import sample.IllusionAnimation.IllussionAnimation;
 import sample.ImpulseAnimation.ImpulseAnimation;
-import sample.ImpulseAnimation.ShakeAnimation;
 
 public class Main extends Application {
 
@@ -28,6 +28,7 @@ public class Main extends Application {
         Box shapeToTest = new Box(0.3, 0.3, 0.3);
         BoxExplosionAnimation boxExplosionAnimation = new BoxExplosionAnimation(shapeToTest, 13, true, parentGroupNode);
         ImpulseAnimation impulseAnimation = new ImpulseAnimation(shapeToTest, new double[] {-0.05, -0.05,1}, 0.01);
+        IllussionAnimation illussionAnimation = new IllussionAnimation(shapeToTest, 3, new double[] {-1, 1, -1, -0.3, -1, 1});
 
         // Scene
         Scene scene = new Scene(parentGroupNode, 800, 600, true);
@@ -47,6 +48,9 @@ public class Main extends Application {
                         break;
                     case E:
                         impulseAnimation.start();
+                        break;
+                    case T:
+                        illussionAnimation.start();
                         break;
                 }
             }
